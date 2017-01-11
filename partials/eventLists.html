@@ -1,0 +1,21 @@
+<div ng-controller="EventListController">
+	
+	<div class="container">
+		<h2>List of All Events</h2>	
+		<div class="row">
+			<div class="col-md-4" ng-repeat="event in events">
+				<ul class="list-group">
+					<a ng-href="#/events/{{events.indexOf(event)}}">
+						<li class="list-group-item">
+							<h3>{{event.name}}</h3>
+							<h5>{{event.date}}</h5>
+							<h5>{{event.location.city}}</h5>
+							<h5>{{event.location.state}}</h5>
+						</li>
+					</a>				
+				</ul>
+				
+			</div>
+		</div>
+	</div>
+</div>

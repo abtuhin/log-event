@@ -1,0 +1,80 @@
+<div class="container" ng-controller="EventController">
+  <div class="row">
+    <div class="col-md-12">
+      <blockquote>{{banglaDate | date:bn}}</blockquote>
+      <img ng-src="{{event.imgUrl}}" alt="{{event.imgUrl}}" class="img-responsive">
+      <button class="btn btn-success" ng-click="reload();">Reload</button>
+    </div>
+    <div class="col-md-6">
+      <h2 ng-style="titleStyle">{{event.name}}</h2>
+      <span>{{event.date | date: 'medium' }} || {{event.time}}</span>
+    </div>
+    <div class="col-md-6">
+      <h2>Location</h2>
+      <address>
+
+        <h5>{{event.location.address}}</h5>
+        <h5>{{event.location.city}}</h5>
+        <h5>{{event.location.state}}</h5>
+      </address>
+      
+    </div>
+     
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Sessions</h2>
+      <div class="row">
+       <div class="col-md-6">
+        OrderBy: 
+         <select class="form-control" ng-model="sortOrder">
+            <option selected value="name">Name</option>
+            <option value="-upVoteCount">Votes</option>
+        </select>  
+       </div>
+       <div class="col-md-6">
+        Filter By: 
+        <select class="form-control" ng-model="query.level">
+            <option selected value="">All</option>
+            <option value="novice">Novice</option>
+            <option value="advance">Advance</option>
+            <option value="pro">Pro</option>
+        </select>   
+       </div> 
+
+      </div>
+       
+       <br>
+      <div class="row" ng-repeat="item in event.sessions | orderBy:sortOrder | filter:query.level">
+       
+        <div class="col-md-2">
+          <div class="well">
+            <span ng-click="upVoteSession(item)" class=" btn glyphicon glyphicon-triangle-top"></span><br>
+            
+            <span class="badge">{{item.upVoteCount}}</span><br>
+            
+            <span ng-click="downVoteSession(item)" class=" btn glyphicon glyphicon-triangle-bottom"></span>
+            
+          </div>
+        </div>
+        <div class="col-md-10">
+          <ul class="list-group">
+            <li class="list-group-item" >
+              <div class="well">
+                <h3>{{item.name}}</h3>
+                <p>{{item.owner}}</p>
+                <p>{{item.duration | duration}}</p>
+                <p>{{item.level}}</p>
+                <p>{{item.abstract}}</p>
+              </div>
+            </li>
+          </ul>    
+        </div>
+      </div>
+        
+    </div>   
+
+  </div>
+
+</div>

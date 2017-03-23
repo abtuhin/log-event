@@ -1,0 +1,22 @@
+{
+  "name": "logger",
+  "version": "1.0.0",
+  "description": "logger event",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abtuhin/log-event.git"
+  },
+  "author": "tuhin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abtuhin/log-event/issues"
+  },
+  "homepage": "https://github.com/abtuhin/log-event#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
